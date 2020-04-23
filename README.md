@@ -14,14 +14,15 @@ This repo will help you setup a basic Kubernetes cluster using Raspberry Pis
 1. Power on first pi (we do one by one so we can figure out IPs)
 2. Figure out the IP - your router or some IP scanner software can help
 3. ssh in using username pi and password raspberry
-4. Run `/boot/scripts/init-master.sh`
-5. Copy contents of /etc/kubernetes/admin.conf to your local machine as $HOME/.kube/config
+4. **Note** you need to think about your IP addresses, I used my router to assign IP's based on mac-address - you may wish to make them static - if so see `/boot/scripts/set-ip.sh` 
+5. Run `/boot/scripts/init-master.sh`
+6. Copy contents of /etc/kubernetes/admin.conf to your local machine as $HOME/.kube/config
 
 ## Nodes setup
 1. Power on another pi (we do one by one so we can figure out IPs)
 2. Figure out the IP - your router or some IP scanner software can help
 3. ssh in using username pi and password raspberry
-4. Run `sudo echo "192.168.1.39 master1.kube.local" >> /etc/hosts`
+4. Run `sudo echo "192.168.1.39 master1.kube.local" >> /etc/hosts` - substitute the IP address with your master node IP
 5. Run `/boot/scripts/init-node.sh node1` (change node number as you do each one)
 6. Repeat for each node
 
